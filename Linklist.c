@@ -25,6 +25,17 @@ void create (int A[], int n)
         last = t;
     }
 }
+// count node 
+int count (struct Node *p)
+{
+    int c=0;
+    while (p !=NULL){
+        c++;
+        p=p->next;
+    }
+    return c; 
+
+}
 //display 
 void Display (struct Node *p)
 {
@@ -43,7 +54,7 @@ void Insert(struct Node *p, int index, int x){
     if (index < 0 || index >count(p))
         return;
         t=(struct Node *)malloc(sizeof(struct Node));
-        t->data = x; 
+        t->data = x; //store value x
         if(index==0){
             t->next = first; 
             first = t;
@@ -58,17 +69,35 @@ void Insert(struct Node *p, int index, int x){
         }
 
 }
-// count node 
-int count (struct Node *p)
-{
-    int c=0;
-    while (p !=NULL){
-        c++;
-        p=p->next;
-    }
-    return c; 
 
+// Delete node 
+int Delete (struct Node*p, int index)
+{
+    struct Node *q = NULL;// create pointer Q no value to point to 
+    int x=-1, i;
+    if(index < 1|| index >count(p))
+        return -1;
+    if(index==1)
+    {
+        q=first ; 
+        x=first ->data;
+        first = first->next;
+        free(q);
+        return x;
+    }
+    else {
+        for (i=0 ; i<index -1; i++)
+        {
+            q=p; 
+            p=p->next;
+        }
+        q->next=p->next;
+        x=p->data;
+        free(p);
+        return x;
+    }
 }
+
 //sum 
 int sum (struct Node *p)
 {
@@ -86,8 +115,10 @@ int main ()
     create ( A,8);
 //Display (first);
     Insert(first, 0,15);
-    Display(first);
+   
     printf("count nodes %d\n", count(first));
     printf("sum of nodes %d\n", sum(first));
+    Delete(first, 2);
+    Display(first);
     return 0;
 }
