@@ -102,7 +102,7 @@ int Delete (struct Node*p, int index)
 int sum (struct Node *p)
 {
     int s=0;
-    while (p!=NULL)\
+    while (p!=NULL)
     {
         s+=p->data;
         p=p->next;

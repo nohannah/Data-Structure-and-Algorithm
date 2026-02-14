@@ -5,7 +5,7 @@ struct Array{
     int size;
     int length;
 };
-
+//display function 
 void Display (struct Array arr)
 {
     int i;
@@ -16,6 +16,7 @@ void Display (struct Array arr)
     }
     /* data */
 }
+
 void Append(struct Array *arr , int x){
     if(arr ->length < arr->size)
     {
