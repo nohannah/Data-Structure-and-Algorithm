@@ -4,8 +4,7 @@
 struct Node 
 {
      int data; 
-     struct Node *next;
-     
+     struct Node *next;    
 };
 struct Node *first = NULL;
 void create (int A[], int n)
@@ -36,10 +35,34 @@ void Display (struct Node *p)
     }
     printf("\n");
 }
+// count node 
+int count (struct Node *p)
+{
+    int c=0;
+    while (p !=NULL){
+        c++;
+        p=p->next;
+    }
+    return c; 
+
+}
+//sum 
+int sum (struct Node *p)
+{
+    int s=0;
+    while (p!=NULL)\
+    {
+        s+=p->data;
+        p=p->next;
+    }
+    return s;
+}
 int main ()
 {
     int A[]= {3, 5, 7, 10, 25, 8, 32, 2};
     create ( A,8);
     Display (first);
+    printf("count nodes %d\n", count(first));
+    printf("sum of nodes %d\n", sum(first));
     return 0;
 }
