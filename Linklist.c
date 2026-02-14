@@ -35,6 +35,29 @@ void Display (struct Node *p)
     }
     printf("\n");
 }
+
+//Insert the nodes
+void Insert(struct Node *p, int index, int x){
+    struct Node *t;
+    int i;
+    if (index < 0 || index >count(p))
+        return;
+        t=(struct Node *)malloc(sizeof(struct Node));
+        t->data = x; 
+        if(index==0){
+            t->next = first; 
+            first = t;
+        }
+        else {
+            for (i=0 ; i<index-1;i++)
+            {
+                p=p->next;
+            }
+            t->next=p->next;
+            p->next=t;
+        }
+
+}
 // count node 
 int count (struct Node *p)
 {
@@ -61,7 +84,9 @@ int main ()
 {
     int A[]= {3, 5, 7, 10, 25, 8, 32, 2};
     create ( A,8);
-    Display (first);
+//Display (first);
+    Insert(first, 0,15);
+    Display(first);
     printf("count nodes %d\n", count(first));
     printf("sum of nodes %d\n", sum(first));
     return 0;
