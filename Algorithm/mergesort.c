@@ -1,8 +1,6 @@
 //Merge Sort
 
 #include <stdio.h>
-
-
 void Merge(int A[], int l, int mid, int h)
 {
     int i = l;
