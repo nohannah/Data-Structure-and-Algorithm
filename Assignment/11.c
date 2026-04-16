@@ -13,7 +13,6 @@ int islandPerimeter(int rows, int cols, int grid[rows][cols]) {
                 // check right neighbor
                 if (j + 1 < cols && grid[i][j + 1] == 1)
                     perimeter -= 2;
-
                 // check bottom neighbor
                 if (i + 1 < rows && grid[i + 1][j] == 1)
                     perimeter -= 2;

@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 int* asteroidCollision(int* asteroids, int n, int* returnSize) {
     int stack[n];
     int top = 0;

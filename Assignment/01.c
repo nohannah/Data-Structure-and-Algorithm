@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include<stdbool.h>
-int *x;
 bool duplicate(int n[],int size){
     for (int i =0 ; i<size ; i++)
     {
@@ -18,7 +17,7 @@ bool duplicate(int n[],int size){
 
 int main(){
     int nums[]={1,2,3,3};
-    int size =sizeof(nums)/sizeof(nums[0]) ;
+    int size =4 ;
     if(duplicate(nums,size))
     {
         printf("true\n");
